@@ -1,0 +1,125 @@
+<!-- aframe documentation: https://aframe.io/docs/1.0.0/introduction/ -->
+
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>aframe empty template</title>
+	<script src="./libraries/aframe-1.0.4.min.js"></script>
+	<script src="./libraries/aframe_ply_pointcloud_loader.js"></script>
+</head>
+
+
+
+<body>
+		<a-scene vr-mode-ui="enabled: false"
+				     background="color: black"
+						 loading-screen="enabled: false">
+
+
+
+<!-- assets (models, videos, images etc.) here -->
+			<a-assets timeout="3000">
+				<a-asset-item id="rock-glb" src="./models/Stone_02_website.glb" response-type="arraybuffer"></a-asset-item>
+				<a-asset-item id="rock02" src="./models/rock-mesh.glb" response-type="arraybuffer"></a-asset-item>
+				<a-asset-item id="rock-ply" src="./models/rock-pointcloud.ply" response-type="arraybuffer"></a-asset-item>
+				<a-asset-item id="IPhone" src="./models/IPhone.glb" response-type="arraybuffer"></a-asset-item>
+    		<video id="benoordenhout2.MOV" muted autoplay loop="true" src="./video/benoordenhout2.MOV"></video>
+				<video id="haya-mov" muted autoplay loop="true" src="./video/la haya5.mov"></video>
+				<img id="route" src="./img/test_route.png">
+				<audio id="santiago-mp3" src="./audio/Santiago.mp3" preload="auto"></audio>
+			</a-assets>
+
+
+
+<!-- entities -->
+
+<a-entity camera
+					cursor="rayOrigin: mouse"
+					raycaster="objects: [data-mouse-collidable]"
+					look-controls position="0 1.6 0" wasd-controls="acceleration:1000"></a-entity>
+</a-entity>
+
+
+			<a-sound id="sound1"
+				src="#santiago-mp3"
+				autoplay="true">
+			</a-sound>
+
+
+
+			<a-box id="sound1-1" scale="1.69805 0.66762 0.72044"
+					data-mouse-collidable
+					sound="src: #santiago-mp3; positional:false; on: click"
+					color="grey"
+					depth="3"
+					height="3"
+					width="3"
+					position="-6.99455 -2.79315 5.82112"
+					rotation="0 -18.6870184881918 0">
+			</a-box>
+
+
+			<a-image id="test-route" scale="16.43921 17.88113 17.88113" position="-7.66521 1.07846 0" transparent="true" src="#route">
+			</a-image>
+
+
+			<a-entity id="pointcloud"
+								ply-pointcloud-model="src: #rock-ply;
+								pointSize: 0.03"
+								position="-1.66204 -3.59553 -27.80641"
+								rotation="0 0 -5"
+								scale="0.75 0.75 0.75">
+			</a-entity>
+
+
+
+			<a-entity id="text"
+								position="2.11848 2 -6"
+								text="width: 6;
+								color: grey;
+								value: A rock is any naturally occurring solid mass or aggregate of minerals or mineraloid matter. It is categorized by the minerals included, its chemical composition and the way in which it is formed. Rocks are usually grouped into three main groups: igneous rocks, metamorphic rocks and sedimentary rocks. Rocks form the Earth's outer solid layer, the crust. ">
+			</a-entity>
+
+
+
+		<!-- GLB mesh entity -->
+			<a-entity id="rock02"
+								gltf-model="#rock-glb"
+								position="-8.34482 -3.5792 -6"
+								scale="0.75 0.75 0.75">
+			</a-entity>
+
+			<a-entity id="my_rock"
+								gltf-model="#rock-glb"
+								position="9.11826 -3.63901 -6"
+								scale="0.75 0.75 0.75">
+			</a-entity>
+
+
+
+
+
+			<a-video id="video"
+							 src="benoordenhout2.MOV"
+							 width="8"
+							 height="4.5"
+							 position="1.3529 6.90644 -5.86575">
+			</a-video>
+
+
+
+			<a-video id="movie"
+							 src="#haya-mov"
+							 width="16"
+							 height="9"
+							 position="-0.86268 2.26682 -7.647">
+			</a-video> -->
+
+
+</a-scene>
+</body>
+
+</html>
